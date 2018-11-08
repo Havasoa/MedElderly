@@ -31,6 +31,10 @@ MANIFEST
 *.manifest
 *.spec
 
+# IntelliJ PyCharm
+.DS_Store
+.idea
+
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
