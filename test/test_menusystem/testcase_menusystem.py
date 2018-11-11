@@ -15,7 +15,6 @@ class testcase_Menusystem(unittest.TestCase):
     def test_ReturnChoise(self):
         mainMenu = Menu("Huvudmeny",
                         "Detta är ett program för att hålla koll på äldres mediciner.",
-                        "Var god skriv in Personnummer",
                         ["Logga in"])
         mainMenu.actions[0] = "Avsluta"
 

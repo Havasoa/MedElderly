@@ -1,14 +1,11 @@
 class Menu:
-    def __init__(self, title : str, description : str, question : str, actions, childMenus=None):
+    def __init__(self, title : str, description : str, actions):
         self.title = title
         self.description = description
-        self.question = question
         self.actions = ["Gå tillbaka"]
 
         for action in actions:
             self.actions.append(action)
-
-        self.childMenus = childMenus
 
     def display(self):
         print(f"*** {self.title} ***")
