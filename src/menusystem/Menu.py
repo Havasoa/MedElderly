@@ -1,5 +1,5 @@
 class Menu:
-    def __init__(self, title : str, description : str, actions):
+    def __init__(self, title : str, description : str = None, actions = []):
         self.title = title
         self.description = description
         self.actions = ["Gå tillbaka"]

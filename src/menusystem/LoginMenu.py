@@ -12,14 +12,36 @@ class LoginMenu(Menu):
 
     def action(self):
         self.display()
-        idnumber = input()
 
-        if self.userManager.hasUser(idnumber):
-            user = self.userManager.getUser(idnumber)
+        userExist = False
+        while userExist is False:
+            idnumber = input()
 
-            password = input("Skriv in ditt lösenord:\n")
-            if password is user.password:
-                print("Vi loggade in som " + user.__str__())
+            if int(idnumber) is 0:
+                return 0
 
-        if int(idnumber) is 0:
-            return 0
+            if self.userManager.hasUser(idnumber):
+                user = self.userManager.getUser(idnumber)
+
+                correctPassword = False
+                passwordTriesLeft = 5
+
+                while passwordTriesLeft > 0 or correctPassword is False:
+                    password = input("Välkommen " + user.__str__() + "\nSkriv in ditt lösenord:\n")
+                    if password == user.password:
+                        print("Vi loggade in som " + user.__str__())
+                        user.menu.action()
+                        correctPassword = True
+
+                    elif(passwordTriesLeft != 0 and not correctPassword):
+                        print("Du skrev fel lösenord!")
+
+                        passwordTriesLeft -= 1
+                        print("Du har " + str(passwordTriesLeft) + " antal försök kvar")
+
+                    else:
+                        print("Du har svarat fel för många gånger!")
+                        return 0
+
+            else:
+                print("Användare " + idnumber + " finns inte i våran databas!")

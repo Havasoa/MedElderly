@@ -1,4 +1,5 @@
 from .Person import Person
+from src.menusystem.Menu import Menu
 
 
 class Staff(Person):
@@ -8,6 +9,9 @@ class Staff(Person):
         self.position = "Personal"
         self.username = idnumber
         self.password = password
+
+        self.menu = Menu("Personalmeny",
+                         self.__str__())
 
     def __str__(self):
         return self.position + " " + super().__str__()
