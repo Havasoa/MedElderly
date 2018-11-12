@@ -1,5 +1,5 @@
-from .Staff import Staff
-
+from .Staff import *
+from src.menusystem.Menu import Menu
 
 class Caregiver(Staff):
     def __init__(self, firstNmae, lastName, idnumber, password):
