@@ -1,7 +1,6 @@
-from src.menusystem.Menu import Menu
 from src.menusystem.LoginMenu import LoginMenu
 from src.usermanager.UserManager import UserManager
-from src.personal.Caregiver import Caregiver
+from src.personal.Caregiver import *
 
 
 mainMenu = Menu("Huvudmeny",
@@ -26,7 +25,13 @@ def main():
             print("Tack för att du valde MedElderly")
             exit(0)
         else:
-            loginMenu.action()
+            user = loginMenu.action()
+
+            if user:
+                choise = user.menu.action()
+
+                if choise is TREAT_PATIENT:
+                    print("Vi har nu kommit till rumsmenyn som ska implementeras!")
 
 
 if __name__ == "__main__":

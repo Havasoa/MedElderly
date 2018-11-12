@@ -30,8 +30,7 @@ class LoginMenu(Menu):
                     password = input("Välkommen " + user.__str__() + "\nSkriv in ditt lösenord:\n")
                     if password == user.password:
                         print("Vi loggade in som " + user.__str__())
-                        user.menu.action()
-                        correctPassword = True
+                        return user
 
                     elif(passwordTriesLeft != 0 and not correctPassword):
                         print("Du skrev fel lösenord!")
@@ -42,6 +41,5 @@ class LoginMenu(Menu):
                     else:
                         print("Du har svarat fel för många gånger!")
                         return 0
-
             else:
                 print("Användare " + idnumber + " finns inte i våran databas!")
