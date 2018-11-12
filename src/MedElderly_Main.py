@@ -1,6 +1,8 @@
 from src.menusystem.LoginMenu import LoginMenu
 from src.usermanager.UserManager import UserManager
 from src.personal.Caregiver import *
+from src.personal.PatientManager import *
+from src.menusystem.RoomMenu import RoomMenu
 
 
 mainMenu = Menu("Huvudmeny",
@@ -12,6 +14,10 @@ userManager = UserManager()
 loginMenu = LoginMenu(userManager)
 careGiver = Caregiver("Marie-Claire", "Carlsson", "880815", "2320")
 
+
+inge = Patient("Inge", "Olsson", "420815", 666)
+patientManager = PatientManager([inge])
+roomMenu = RoomMenu(patientManager)
 
 def main():
     userManager.appendUser(careGiver)
@@ -31,8 +37,10 @@ def main():
                 choise = user.menu.action()
 
                 if choise is TREAT_PATIENT:
-                    print("Vi har nu kommit till rumsmenyn som ska implementeras!")
+                    patient = roomMenu.action()
 
+                    if patient:
+                        print("Nu är det dags att implementera medicinmeny")
 
 if __name__ == "__main__":
     main()
