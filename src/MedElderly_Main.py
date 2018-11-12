@@ -2,6 +2,9 @@ from src.menusystem.LoginMenu import LoginMenu
 from src.usermanager.UserManager import UserManager
 from src.personal.Caregiver import *
 
+from src.medicine.PrescriptionList import *
+from src.medicine.Medicine import *
+from src.personal.Patient import *
 
 mainMenu = Menu("Huvudmeny",
                 "Detta är ett program för att hålla koll på äldres mediciner.",
@@ -35,4 +38,13 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    #main()
+
+    patient = Patient("Erik", "Benktsson", "1234567")
+    mango = Medicine("Mango", "Är gott för hjärtat")
+    insulin = Medicine("Insulin", "För socker halten")
+    prescription = Prescription(patient, mango, "10:00")
+    prescription2 = Prescription(patient, insulin, "12:00")
+    list = PrescriptionList(patient, [prescription, prescription2])
+
+    print(list.__str__())
