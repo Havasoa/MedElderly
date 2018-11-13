@@ -5,7 +5,7 @@ from src.usermanager.UserManager import UserManager
 class LoginMenu(Menu):
     def __init__(self, userManager : UserManager):
         super().__init__("Login",
-                         "Skriv in ditt personnummer:",
+                         "Skriv in ditt personnummer",
                          [])
 
         self.userManager = userManager
@@ -15,7 +15,7 @@ class LoginMenu(Menu):
 
         userExist = False
         while userExist is False:
-            idnumber = input()
+            idnumber = input("Personnummer: ")
 
             if int(idnumber) is 0:
                 return 0
