@@ -12,7 +12,7 @@ class Menu:
         print(f"* {self.description} *")
 
         for x in range(0, len(self.actions)):
-            print(str(x) + ". " + self.actions[x])
+            print(str(x) + ". " + self.actions[x].__str__())
 
     def action(self):
         choise = -1
@@ -23,6 +23,6 @@ class Menu:
                 print("Ogiltigt val!")
                 choise = -1
             else:
-                print("Du valde: " + self.actions[choise])
+                print("Du valde: " + self.actions[choise].__str__())
 
         return choise

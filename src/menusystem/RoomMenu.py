@@ -26,9 +26,9 @@ class RoomMenu(Menu):
                 self.patientManager.listPatients()
             elif choise is 2:
                 while True:
-                    room = input("Ange vilket rum patienten bor i: ")
+                    room = int(input("Ange vilket rum patienten bor i: "))
 
-                    if self.patientManager.hasPatient(int(room)):
+                    if self.patientManager.hasPatient(room):
                         patient = self.patientManager.getPatient(room)
                         return patient
                     elif int(room) is 0:

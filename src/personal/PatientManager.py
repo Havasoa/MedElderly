@@ -5,7 +5,7 @@ class PatientManager:
     def __init__(self, patients = []):
         self.patients = patients
 
-    def hasPatient(self, room):
+    def hasPatient(self, room : int):
         for patient in self.patients:
             if patient.room == room:
                 return True
@@ -21,7 +21,7 @@ class PatientManager:
             print("==========")
         print("*****************")
 
-    def getPatient(self, room):
+    def getPatient(self, room : int):
         for patient in self.patients:
             if patient.room == room:
                 return patient
